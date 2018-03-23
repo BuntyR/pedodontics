@@ -1,0 +1,30 @@
+<resources>
+  <string name="app_name">Pedodontics</string>
+  <string name="title_activity_drawer">Pedodontics</string>
+
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+
+  <string name="action_settings">Settings</string>
+
+  //Drawer Strings
+  <string name="immunisation">Immunisation Schedule</string>
+  <string name="physiological">Physiological Parameter</string>
+  <string name="developmental">Developmental Milestones</string>
+  <string name="oral">Oral Hygiene</string>
+  <string name="dentition">Dentition</string>
+  <string name="anxiety">Anxiety Rating</string>
+  <string name="behaviour">Behaviour Management</string>
+  <string name="drug">Drug dose</string>
+  <string name="share">Share</string>
+  <string name="contact_us">Contact us</string>
+  <string name="hint_mobile">Enter 10 digit mobile number</string>
+  <string name="login">Login</string>
+
+  <string name="facebook_app_id">1798318633808009</string>
+  <string name="fb_login_protocol_scheme">fb1798318633808009</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

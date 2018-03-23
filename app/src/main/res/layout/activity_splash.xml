@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dentist.pedodontics.SplashActivity"
+    >
+
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/_60sdp"
+      android:gravity="center"
+      android:letterSpacing="0.2"
+      android:text="@string/app_name"
+      android:textAllCaps="true"
+      android:textColor="@color/white"
+      android:textSize="@dimen/_24ssp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      />
+</android.support.constraint.ConstraintLayout>

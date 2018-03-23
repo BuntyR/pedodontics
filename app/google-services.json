@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "384412119398",
+    "firebase_url": "https://pedodontics-229ca.firebaseio.com",
+    "project_id": "pedodontics-229ca",
+    "storage_bucket": "pedodontics-229ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384412119398:android:4a9bae882cb0e6c0",
+        "android_client_info": {
+          "package_name": "com.dentist.pedodontics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384412119398-0v3u3j38c9theamug0715k7qq1f19k2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dentist.pedodontics",
+            "certificate_hash": "ff64741aee8d0220af75992eb1770eac83fec857"
+          }
+        },
+        {
+          "client_id": "384412119398-r6mjrcr6dpf1gok9qkq6potg3un1hvvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnjEmoOkI7Wq-j5J2TvWRrX0YwsatXJiU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384412119398-r6mjrcr6dpf1gok9qkq6potg3un1hvvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_authentication"
+    tools:context="com.dentist.pedodontics.features.authentication.AuthenticationActivity"
+    >
+
+
+  <TextView
+      android:id="@+id/welcome"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/_50sdp"
+      android:gravity="center"
+      android:text="Welcome to,"
+      android:textColor="@color/white"
+      android:textSize="@dimen/_18ssp"
+      android:textStyle="italic"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <TextView
+      android:id="@+id/appName"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/_15sdp"
+      android:gravity="center"
+      android:letterSpacing="0.2"
+      android:text="@string/app_name"
+      android:textAllCaps="true"
+      android:textColor="@color/white"
+      android:textSize="@dimen/_21ssp"
+      android:textStyle="bold"
+      app:layout_constraintTop_toBottomOf="@id/welcome"
+      />
+
+
+  <EditText
+      android:id="@+id/mobileNumber"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/hint_mobile"
+      android:maxLength="10"
+      android:textSize="@dimen/_15ssp"
+      android:visibility="gone"
+
+      />
+
+
+  <Button
+      android:id="@+id/loginBtn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/login"
+      android:visibility="gone"
+      app:layout_constraintTop_toBottomOf="@id/mobileNumber"
+      />
+
+  <com.google.android.gms.common.SignInButton
+      android:id="@+id/sign_in_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/_20sdp"
+      android:layout_marginLeft="@dimen/_60sdp"
+      android:layout_marginRight="@dimen/_60sdp"
+      android:gravity="center_vertical|center"
+      app:layout_constraintBottom_toTopOf="@+id/fblogin_button"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintVertical_chainStyle="packed"
+      />
+
+
+  <com.facebook.login.widget.LoginButton
+      android:id="@+id/fblogin_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginBottom="@dimen/_30sdp"
+      android:layout_marginLeft="@dimen/_60sdp"
+      android:layout_marginRight="@dimen/_60sdp"
+      android:paddingBottom="@dimen/_13sdp"
+      android:paddingTop="@dimen/_13sdp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+  <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/nav_immunisation"
+        android:icon="@drawable/ic_immunisation"
+        android:title="@string/immunisation"/>
+
+    <item
+        android:id="@+id/nav_physiological"
+        android:icon="@drawable/ic_physiological"
+        android:title="@string/physiological"/>
+    <item
+        android:id="@+id/nav_developmental"
+        android:icon="@drawable/ic_behaviour"
+        android:title="@string/developmental"/>
+    <item
+        android:id="@+id/nav_oral"
+        android:icon="@drawable/ic_oral"
+        android:title="@string/oral"/>
+    <item
+        android:id="@+id/nav_dentition"
+        android:icon="@drawable/ic_dentition"
+        android:title="@string/dentition"/>
+
+    <item
+        android:id="@+id/nav_anxiety"
+        android:icon="@drawable/ic_anxiety"
+        android:title="@string/anxiety"/>
+
+    <item
+        android:id="@+id/nav_behaviour"
+        android:icon="@drawable/ic_behaviour"
+        android:title="@string/behaviour"/>
+
+    <item
+        android:id="@+id/nav_drug"
+        android:icon="@drawable/ic_immunisation"
+        android:title="@string/drug"/>
+
+    <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/share"/>
+
+    <item
+        android:id="@+id/nav_contactus"
+        android:icon="@drawable/ic_call"
+        android:title="@string/contact_us"/>
+
+  </group>
+
+  <!--<item android:title="Communicate">
+    <menu>
+      <item
+          android:id="@+id/nav_share"
+          android:icon="@drawable/ic_menu_share"
+          android:title="Share"/>
+      <item
+          android:id="@+id/nav_send"
+          android:icon="@drawable/ic_menu_send"
+          android:title="Send"/>
+    </menu>
+  </item>-->
+
+</menu>
