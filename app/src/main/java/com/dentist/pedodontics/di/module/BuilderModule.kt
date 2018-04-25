@@ -4,6 +4,7 @@ import com.dentist.pedodontics.SplashActivity
 import com.dentist.pedodontics.features.authentication.AuthenticationActivity
 import com.dentist.pedodontics.features.developmental.MilestonesFragment
 import com.dentist.pedodontics.features.drawer.DrawerActivity
+import com.dentist.pedodontics.features.immunisation.ImmunisationFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -25,4 +26,7 @@ abstract class BuilderModule {
 
   @ContributesAndroidInjector
   internal abstract fun milestonesFragment(): MilestonesFragment
+
+  @ContributesAndroidInjector
+  internal abstract fun immunisationFragment(): ImmunisationFragment
 }

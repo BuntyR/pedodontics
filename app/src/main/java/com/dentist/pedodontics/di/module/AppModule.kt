@@ -24,12 +24,17 @@ class AppModule() {
 
   @Provides
   fun provideFirebaseInstance(): FirebaseAuth {
-    return FirebaseAuth.getInstance();
+    return FirebaseAuth.getInstance()
   }
 
   @Provides
-  fun provideFirebaseDatabaseInstance(): DatabaseReference {
-    return FirebaseDatabase.getInstance().reference;
+  fun provideFirebaseDatabase(): FirebaseDatabase {
+    return FirebaseDatabase.getInstance()
+  }
+
+  @Provides
+  fun provideFirebaseDatabaseInstance(mFirebaseDatabase: FirebaseDatabase): DatabaseReference {
+    return mFirebaseDatabase.reference;
   }
 
 }

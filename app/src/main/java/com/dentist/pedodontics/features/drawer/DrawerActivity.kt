@@ -13,6 +13,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dentist.pedodontics.R
 import com.dentist.pedodontics.features.base.BaseActivity
 import com.dentist.pedodontics.features.developmental.MilestonesFragment
+import com.dentist.pedodontics.features.immunisation.ImmunisationFragment
 import com.dentist.pedodontics.features.physiological.IdealHeightFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.orhanobut.logger.Logger
@@ -86,6 +87,7 @@ class DrawerActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedLi
     when (item.itemId) {
       R.id.nav_immunisation -> {
         // Handle the camera action
+        replaceFragment(ImmunisationFragment.newInstance())
       }
       R.id.nav_physiological -> {
         replaceFragment(IdealHeightFragment.newInstance())
