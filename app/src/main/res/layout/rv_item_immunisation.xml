@@ -1,43 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIn="@layout/fragment_immunisation"
-    app:cardElevation="@dimen/_4sdp"
-    app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/colorPrimary"
+    android:padding="@dimen/_13sdp"
     >
-  <android.support.constraint.ConstraintLayout
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
+
+  <TextView
+      android:id="@+id/age"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      >
+      android:textColor="@color/black"
+      android:textSize="@dimen/_13ssp"
+      />
 
-    <TextView
-        android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Age to Immunize"
-        />
-
-    <TextView
-        android:id="@+id/route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/age"
-        tools:text="Route : "
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/route"
-        tools:text="Immunization "
-        />
-
-  </android.support.constraint.ConstraintLayout>
-</android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

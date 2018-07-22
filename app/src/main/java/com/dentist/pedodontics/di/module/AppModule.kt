@@ -24,16 +24,22 @@ class AppModule() {
 
   @Provides
   fun provideFirebaseInstance(): FirebaseAuth {
-    return FirebaseAuth.getInstance()
+    val firedatbase = FirebaseAuth.getInstance()
+    return firedatbase
   }
 
   @Provides
   fun provideFirebaseDatabase(): FirebaseDatabase {
-    return FirebaseDatabase.getInstance()
+    val firedatbase = FirebaseDatabase.getInstance()
+//    firedatbase.setPersistenceEnabled(false)
+//    firedatbase.setLogLevel(com.google.firebase.database.Logger.Level.DEBUG)
+    return firedatbase
   }
 
   @Provides
   fun provideFirebaseDatabaseInstance(mFirebaseDatabase: FirebaseDatabase): DatabaseReference {
+//    mFirebaseDatabase.setPersistenceEnabled(false)
+//    mFirebaseDatabase.setLogLevel(com.google.firebase.database.Logger.Level.DEBUG)
     return mFirebaseDatabase.reference;
   }
 

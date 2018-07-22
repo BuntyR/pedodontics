@@ -1,4 +1,4 @@
-package com.dentist.pedodontics.features.immunisation
+package com.dentist.pedodontics.features.oral
 
 
 import android.os.Bundle
@@ -8,33 +8,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dentist.pedodontics.R
-import com.dentist.pedodontics.data.models.response.immunisation.ImmunisationData
+import com.dentist.pedodontics.data.models.response.oral.DataItem
 import com.dentist.pedodontics.features.base.BaseFragment
 import com.google.firebase.database.*
-import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager
 import com.orhanobut.logger.Logger
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_immunisation.*
+import kotlinx.android.synthetic.main.fragment_oral_hygiene.*
 import javax.inject.Inject
 
 
-class ImmunisationFragment : BaseFragment() {
+class OralHygieneFragment : BaseFragment() {
 
   @Inject
   lateinit var mFirebaseDatabase: DatabaseReference
 
   @Inject
-  lateinit var mAdapter: ImmunisationAdapter
+  lateinit var mAdapter: OralHygieneAdapter
 
-  lateinit var immunisationDataList: List<ImmunisationData>
-
-
-  private var mRecyclerView: RecyclerView? = null
   private var mLayoutManager: RecyclerView.LayoutManager? = null
-  //  private var mAdapter: ImmunisationAdapter? = null
-  private var mWrappedAdapter: RecyclerView.Adapter<*>? = null
-  private var mRecyclerViewExpandableItemManager: RecyclerViewExpandableItemManager? = null
-
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -44,24 +35,17 @@ class ImmunisationFragment : BaseFragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?): View? {
     // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_immunisation, container, false)
+    return inflater.inflate(R.layout.fragment_oral_hygiene, container, false)
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-
     mLayoutManager = LinearLayoutManager(context)
-    mRecyclerViewExpandableItemManager = RecyclerViewExpandableItemManager(null)
-    mRecyclerViewExpandableItemManager!!.setDefaultGroupsExpandedState(true)
-    val mWrappedAdapter = mRecyclerViewExpandableItemManager!!.createWrappedAdapter(
-        mAdapter
-    )// wrap for expanding
+    rvHygiene.isNestedScrollingEnabled = false
+    rvHygiene.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    rvHygiene.adapter = mAdapter
 
-    rvImmunisation.isNestedScrollingEnabled = false
-    rvImmunisation.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-    rvImmunisation.adapter = mWrappedAdapter
-    mRecyclerViewExpandableItemManager!!.attachRecyclerView(rvImmunisation)
-    mFirebaseDatabase.child("immunisation").addValueEventListener(object : ValueEventListener {
+    mFirebaseDatabase.child("hygiene").addValueEventListener(object : ValueEventListener {
       override fun onCancelled(p0: DatabaseError) {
         if (p0 != null) {
           Logger.d("ValueEventListener The read failed: ${p0.message}")
@@ -71,25 +55,39 @@ class ImmunisationFragment : BaseFragment() {
       }
 
       override fun onDataChange(p0: DataSnapshot) {
+
         if (p0 != null) {
           for (data in p0.children)
             mAdapter.setData(
-                data.getValue(object : GenericTypeIndicator<ArrayList<ImmunisationData>>() {}))
+                data.getValue(object : GenericTypeIndicator<ArrayList<DataItem>>() {}))
         } else {
           Logger.d("ValueEventListener onDataChange is NULL")
         }
+
+
+        /*if (p0 != null) {
+          Logger.d("ValueEventListener onDataChange is NOT  NULL $p0")
+          for (data in p0.children)
+            if (data.hasChild("data")) {
+              val oralData: ArrayList<DataItem> = data.child("data").getValue() as ArrayList<DataItem>
+              mAdapter.setData(oralData)
+            }
+        } else {
+          Logger.d("ValueEventListener onDataChange is NULL")
+        }*/
       }
     })
 
   }
 
   companion object {
-    fun newInstance(): ImmunisationFragment {
-      val fragment = ImmunisationFragment()
+    fun newInstance(): OralHygieneFragment {
+      val fragment = OralHygieneFragment()
       val args = Bundle()
       fragment.arguments = args
       return fragment
     }
   }
+
 
 }

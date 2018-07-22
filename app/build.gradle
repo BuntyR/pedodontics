@@ -54,7 +54,11 @@ ext.versions = [dagger                 : "2.11",
                 jobque                 : "2.0.1",
                 leakcanary             : "1.5.4",
                 sdp                    : "1.0.5",
-                firebase               : "15.0.0"]
+                firebase               : "11.8.0",
+                butterknife            : "8.8.1",
+                firebasedatabase       : "16.0.1",
+                firebaseauth           : "16.0.2",
+                playservicesauth       : "15.0.1"]
 
 kapt {
   generateStubs = true
@@ -84,6 +88,7 @@ dependencies {
   implementation 'com.android.support:support-v4:27.1.0'
   kapt "com.google.dagger:dagger-compiler:$versions.dagger"
   kapt "com.google.dagger:dagger-android-processor:$versions.dagger"
+  compileOnly 'javax.annotation:jsr250-api:1.0'
 
 
   //sdp & ssp
@@ -98,12 +103,12 @@ dependencies {
   debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
 
   //Firebase
-  implementation "com.google.firebase:firebase-core:$versions.firebase"
-  implementation "com.google.firebase:firebase-auth:$versions.firebase"
+  implementation "com.google.firebase:firebase-core:$versions.firebasedatabase"
+  implementation "com.google.firebase:firebase-auth:$versions.firebaseauth"
   //Firebase Auth
-  implementation "com.google.android.gms:play-services-auth:$versions.firebase"
+  implementation "com.google.android.gms:play-services-auth:$versions.playservicesauth"
   //Firebase RealtimeDB
-  implementation "com.google.firebase:firebase-database:$versions.firebase"
+  implementation "com.google.firebase:firebase-database:$versions.firebasedatabase"
 
   //Facebook
   implementation 'com.facebook.android:facebook-login:4.31.0'
@@ -111,5 +116,23 @@ dependencies {
   //Glide
   implementation "com.github.bumptech.glide:glide:$versions.glide"
   kapt "com.github.bumptech.glide:compiler:$versions.glide"
+
+  //Gson
+  implementation "com.google.code.gson:gson:$versions.gson"
+
+  //Advanced RecylerView
+  implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar') {
+    transitive = true
+  }
+
+  //ButterKnife
+  implementation("com.jakewharton:butterknife:$versions.butterknife") {
+    exclude module: 'support-compat'
+  }
+
+  //SmileyRating
+  implementation 'com.github.sujithkanna:smileyrating:1.6.8'
+
+  annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterknife"
 }
 apply plugin: 'com.google.gms.google-services'

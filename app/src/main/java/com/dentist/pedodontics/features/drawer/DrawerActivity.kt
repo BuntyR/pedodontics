@@ -2,8 +2,11 @@ package com.dentist.pedodontics.features.drawer
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.ShareCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
@@ -11,9 +14,13 @@ import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dentist.pedodontics.R
+import com.dentist.pedodontics.features.anxiety.AnxietyFragment
 import com.dentist.pedodontics.features.base.BaseActivity
+import com.dentist.pedodontics.features.behaviour.BehaviourFragment
+import com.dentist.pedodontics.features.dentition.DentitionFragment
 import com.dentist.pedodontics.features.developmental.MilestonesFragment
 import com.dentist.pedodontics.features.immunisation.ImmunisationFragment
+import com.dentist.pedodontics.features.oral.OralHygieneFragment
 import com.dentist.pedodontics.features.physiological.IdealHeightFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.orhanobut.logger.Logger
@@ -58,6 +65,11 @@ class DrawerActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedLi
     }
   }
 
+  override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    super.onPostCreate(savedInstanceState, persistentState)
+    replaceFragment(ImmunisationFragment.newInstance())
+  }
+
   override fun onBackPressed() {
     if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
       drawer_layout.closeDrawer(GravityCompat.START)
@@ -96,22 +108,35 @@ class DrawerActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedLi
         replaceFragment(MilestonesFragment.newInstance())
       }
       R.id.nav_oral -> {
-
+        replaceFragment(OralHygieneFragment.newInstance())
       }
       R.id.nav_dentition -> {
-
+        replaceFragment(DentitionFragment.newInstance())
       }
       R.id.nav_anxiety -> {
-
+        replaceFragment(AnxietyFragment.newInstance())
       }
       R.id.nav_behaviour -> {
-
+        replaceFragment(BehaviourFragment.newInstance())
       }
       R.id.nav_drug -> {
 
       }
+      R.id.nav_share -> {
+        ShareCompat.IntentBuilder.from(this)
+            .setType("text/plain")
+            .setChooserTitle("Share Pedodontics Via")
+            .setText("http://play.google.com/store/apps/details?id=" + this.getPackageName())
+            .startChooser();
+      }
+      R.id.nav_contactus -> {
+        val uri = "tel:+91 8888544466"
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse(uri)
+        startActivity(intent)
+      }
       else -> {
-
+        replaceFragment(ImmunisationFragment.newInstance())
       }
     }
 

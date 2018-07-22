@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "384412119398-qtrto1prasr8m9q8iln914mvrencn9pb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dentist.pedodontics",
+            "certificate_hash": "fe8f0fd2f30b32a365b6eedd3feadd0bdfe0a8c3"
+          }
+        },
+        {
           "client_id": "384412119398-r6mjrcr6dpf1gok9qkq6potg3un1hvvr.apps.googleusercontent.com",
           "client_type": 3
         }

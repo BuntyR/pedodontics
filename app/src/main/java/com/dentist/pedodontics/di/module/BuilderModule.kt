@@ -2,9 +2,12 @@ package com.dentist.pedodontics.di.module
 
 import com.dentist.pedodontics.SplashActivity
 import com.dentist.pedodontics.features.authentication.AuthenticationActivity
+import com.dentist.pedodontics.features.behaviour.BehaviourFragment
+import com.dentist.pedodontics.features.dentition.DentitionFragment
 import com.dentist.pedodontics.features.developmental.MilestonesFragment
 import com.dentist.pedodontics.features.drawer.DrawerActivity
 import com.dentist.pedodontics.features.immunisation.ImmunisationFragment
+import com.dentist.pedodontics.features.oral.OralHygieneFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -29,4 +32,13 @@ abstract class BuilderModule {
 
   @ContributesAndroidInjector
   internal abstract fun immunisationFragment(): ImmunisationFragment
+
+  @ContributesAndroidInjector
+  internal abstract fun oralHygieneFragment(): OralHygieneFragment
+
+  @ContributesAndroidInjector
+  internal abstract fun behaviourFragment(): BehaviourFragment
+
+  @ContributesAndroidInjector
+  internal abstract fun dentitionFragment(): DentitionFragment
 }

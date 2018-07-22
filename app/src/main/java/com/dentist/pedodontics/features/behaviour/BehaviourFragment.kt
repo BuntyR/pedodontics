@@ -1,4 +1,5 @@
-package com.dentist.pedodontics.features.developmental
+package com.dentist.pedodontics.features.behaviour
+
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,65 +7,46 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import com.dentist.pedodontics.R
-import com.dentist.pedodontics.data.models.response.milestones.DataItem
+import com.dentist.pedodontics.data.models.response.behaviour.DataItem
 import com.dentist.pedodontics.features.base.BaseFragment
 import com.google.firebase.database.*
-import com.google.gson.Gson
 import com.orhanobut.logger.Logger
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_milestones.*
+import kotlinx.android.synthetic.main.fragment_behaviour.*
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
+ *
  */
-class MilestonesFragment : BaseFragment() {
+class BehaviourFragment : BaseFragment() {
 
   @Inject
   lateinit var mDatabaseReference: DatabaseReference
 
   @Inject
-  lateinit var mAdapter: MilestonesAdapter
-
+  lateinit var mAdapter: BehaviourAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     AndroidSupportInjection.inject(this)
   }
 
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+      savedInstanceState: Bundle?): View? {
+    // Inflate the layout for this fragment
+    return inflater.inflate(R.layout.fragment_behaviour, container, false)
+  }
+
   override fun onStart() {
     super.onStart()
 
     mDatabaseReference = mDatabaseReference.child(
-        "developmentalTest")
+        "behaviour")
 
     mDatabaseReference.keepSynced(true)
-    /*mDatabaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-      override fun onCancelled(p0: DatabaseError) {
-        Logger.d("Databse Error : ${p0.toString()}")
-      }
-
-      override fun onDataChange(p0: DataSnapshot) {
-
-        var mList: MutableList<DataItem> = arrayListOf()
-        if (p0 != null) {
-          for (data in p0.children) {
-            mList.add(Gson().fromJson(Gson().toJson(data.value),
-                DataItem::class.java))
-          }
-
-          for (element in mList) {
-            Logger.d("ValueEventListener List : " + element)
-          }
-
-          mAdapter.setData(mList as ArrayList<DataItem>?)
-        } else {
-          Logger.d("ValueEventListener onDataChange is NULL")
-        }
-      }
-
-    })*/
 
     mDatabaseReference.addValueEventListener(object : ValueEventListener {
       override fun onCancelled(p0: DatabaseError) {
@@ -137,28 +119,24 @@ class MilestonesFragment : BaseFragment() {
     })*/
   }
 
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-      savedInstanceState: Bundle?): View? {
-    // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_milestones, container, false)
-  }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    rvMilestones.isNestedScrollingEnabled = false
-    rvMilestones.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-    rvMilestones.adapter = mAdapter
+    rvBehaviour.isNestedScrollingEnabled = false
+    rvBehaviour.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    rvBehaviour.adapter = mAdapter
 
     Logger.d("Firebase Database Reference $mDatabaseReference")
   }
 
   companion object {
-    fun newInstance(): MilestonesFragment {
-      val fragment = MilestonesFragment()
+    fun newInstance(): BehaviourFragment {
+      val fragment = BehaviourFragment()
       val args = Bundle()
       fragment.arguments = args
       return fragment
     }
   }
 
-}// Required empty public constructor
+
+}
